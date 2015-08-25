@@ -2,9 +2,14 @@
 % Yildiz Lab
 
 % Converts a .tiff file to a .dax file. Navigate workspace to directory.
-% Last modified: 08/23/15
+% Modified 08/25/15: allow to change working directory
+%   Input: wd = user input working directory containing Z-stack .tif images
 
 clear all;
+
+% Change working directory
+wd = input('Enter working directory: ')
+cd(wd)
 
 % Obtain list of files in file directory
 dirData = dir('*.tif');
@@ -44,3 +49,5 @@ for i = 1:num
     fclose(fileID);
 
 end
+
+
