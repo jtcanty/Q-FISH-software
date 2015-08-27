@@ -9,7 +9,7 @@ ImageJ -batch LSMtoTIFF.ijm
 
 
 # Run tif2dax.m function on .tiff files
-cd ~/Documents/Q-FISH-toolbox
+cd ~/Documents/Projects/Q-FISH-toolbox
 
 
 # Change working directory
