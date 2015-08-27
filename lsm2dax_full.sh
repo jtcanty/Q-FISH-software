@@ -13,4 +13,4 @@ cd ~/Documents/Q-FISH-toolbox
 
 
 # Change working directory
-"C:\Program Files\MATLAB\R2014b\bin\matlab.exe" -nodisplay -nosplash -nodesktop -r "run('C:\Users\TweedleDee\Documents\Q-FISH-toolbox\tif2dax.m');exit;"
+"C:\Program Files\MATLAB\R2014b\bin\matlab.exe" -nodisplay -nosplash -nodesktop -r "run('C:\Users\TweedleDee\Documents\Projects\Q-FISH-toolbox\tif2dax.m');exit;"
