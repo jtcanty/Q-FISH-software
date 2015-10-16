@@ -7,6 +7,7 @@
 global FindSpots
 global insightExe
 global IniPath
+global Parameters
 global DataPath
 global IniTemp
 
@@ -17,7 +18,8 @@ addpath(functionpaths);
 
 %% Set paths needed for InsightM
 insightExe = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\InsightM.exe';
-IniPath = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\Insight3.ini';
+Parameters = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\Insight3.ini';
+IniPath = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\one-color configuration1.ini';
 IniTemp = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\Insight3_temp.ini';
 
 disp('Adding InsightM paths');

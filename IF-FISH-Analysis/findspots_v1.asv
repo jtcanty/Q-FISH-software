@@ -71,25 +71,14 @@ end
 
 %% Step 4 Convert .bin to .txt files
 
-
 %% Step 5 - Identify colocalizations
 % Call FISH_DDR_colocalization.m function
 dirDataTxt = dir('*_FISH_list.txt');
 num = numel(dirDataTxt);
-Allstackdata_xyI = [];
-
 for i = 1:num
-    TxtFileName = dirDataTxt(i).name;
-    stackdata_xyI = FISH_DDR_colocalization(TxtFileName);
-    Allstackdata_xyI = [Allstackdata_xyI;{stackdata_xyI}];
-end
+TxtName = dirDataTxt(i).name;
+stackdata_xyI = FISH_DDR_colocalization()
 
-%% Step 6 - Export data
-% Export colocalized telomeres and their intensities into one excel file
-% and non colocalized telomeres into another excel file.
-% Colocalized telomeres = Colocalized_ints.xlsx
-% Noncolocalized telomeres = Noncolocalized_ints.xlsx
-% All telomeres = All_ints.xlsx
 
 
 

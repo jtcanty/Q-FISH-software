@@ -19,16 +19,15 @@ while ~feof(fin)
     i = i+1;
     s = fgetl(fin);
     if i==22
-        s = strcat('min height=',num2str(min_above)); 
+        s = strcat('min height=',num2str(min_above)) 
     end 
-    if i==31
-        s = strcat('default background=',num2str(avg_bkd));
+    if i==33
+        s = strcat('default background=',num2str(avg_bkd))
     end
-    fprintf(fout,'%s \n',s);
+    fprintf(fout,'%s\n',s);
 end
 
 fclose('all')
 
-delete(IniPath);
-movefile(IniTemp,IniPath);
+
 
