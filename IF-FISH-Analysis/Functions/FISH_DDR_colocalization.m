@@ -7,7 +7,7 @@
 %% image of DDR-FISH. User manuals removes all colocalizers and the XY coordinates
 %% and intensity values are exported
 
-function stackdata_xyI = FISH_DDR_colocalization(file)
+function [locs_stackdata_xyI,co_stackdata_xyI,notco_stackdata_xyI] = FISH_DDR_colocalization(file)
 
 %Identify number of frames in image stack
 info = imfinfo(file);
@@ -31,9 +31,9 @@ end
 
 % Open text file containing localized spots for the image stack outputted
 % from InsightM. Create arrays of XY coordinates and frames.
-ind = strfind(file,'.');
+ind = strfind(file,'merge.');
 file(ind:end) = [];
-txtfile = strcat(file,'.txt');
+txtfile = strcat(file,'FISH_list.txt');
 FISHinfo = tdfread(txtfile,'\t');
 xc_array = FISHinfo.Xc;
 yc_array = FISHinfo.Yc;
@@ -44,7 +44,13 @@ frame_array = FISHinfo.Frame;
 % frame onto the image.
 % Note: Use Data-Brush tool to remove all points that do not look like they
 % colocalize.
-stackdata_xyI = [];
+
+set(0, 'DefaultFigurePosition', [-816    57   804   910]);
+
+co_stackdata_xyI = [];
+locs_stackdata_xyI = [];
+notco_stackdata_xyI = [];
+
 merge_fnum = numel(merge_stack);
 for i = 1:merge_fnum
     % Find elements of XY coordinates with current frame number
@@ -61,12 +67,15 @@ for i = 1:merge_fnum
         I_frame = I_array(ind);
         frame_val = frame_array(ind);
         xyI_frame = horzcat(x_frame,y_frame,I_frame,frame_val);
+        % Append locs to array
+        locs_stackdata_xyI = vertcat(locs_stackdata_xyI,xyI_frame);
 
         % Overlay coordinates onto current image
         img = imagesc(merge_stack{i});
         hold on;
         plot(xyI_frame(:,1)',xyI_frame(:,2)','y.');
             % Add functionality to make larger
+        brush on
         disp('Hit enter after clearing non-colocalizers...');
         pause
 
@@ -76,7 +85,12 @@ for i = 1:merge_fnum
         yremain = get(h,'Ydata');
         locs = horzcat(xremain',yremain')
         xyI_frame_remain = xyI_frame(~any(isnan(locs),2),:); 
-        stackdata_xyI = vertcat(stackdata_xyI,xyI_frame_remain);
+        co_stackdata_xyI = vertcat(co_stackdata_xyI,xyI_frame_remain);
+        
+        % Append non-colocalizing points to data array
+        xyI_frame_not = xyI_frame(any(isnan(locs),2),:);
+        notco_stackdata_xyI = vertcat(notco_stackdata_xyI,xyI_frame_not);
+       
         close
     end
 end

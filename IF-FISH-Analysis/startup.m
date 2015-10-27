@@ -2,6 +2,7 @@
 % Sets paths for all necessary functions.
 
 % NAVIGATE to working directory containing .tif files first!
+% Make sure only .tif and .lsm files are in the directory!
 
 %% Define global variables
 global FindSpots
