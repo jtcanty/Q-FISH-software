@@ -28,7 +28,7 @@ while ~feof(fin)
         s = strcat('default background=',num2str(avg_bkd))
     end
     if i==40
-        s = strcat('pixel size=',num2str(40));
+        s = strcat('pixel size=',num2str(66.15));
     end
     fprintf(fout,'%s\n',s);
 end

@@ -74,23 +74,19 @@ for i = 1:merge_fnum
         img = imagesc(merge_stack{i});
         hold on;
         plot(xyI_frame(:,1)',xyI_frame(:,2)','y.');
-            % Add functionality to make larger
         brush on
-        disp('Hit enter after clearing non-colocalizers...');
+        disp('Hit enter after selecting colocalizers...');
         pause
-
-        % Append remaining points to data array 
-        h = findobj(gca,'Type','line');
-        xremain = get(h,'Xdata');
-        yremain = get(h,'Ydata');
-        locs = horzcat(xremain',yremain')
-        xyI_frame_remain = xyI_frame(~any(isnan(locs),2),:); 
-        co_stackdata_xyI = vertcat(co_stackdata_xyI,xyI_frame_remain);
         
-        % Append non-colocalizing points to data array
-        xyI_frame_not = xyI_frame(any(isnan(locs),2),:);
+        % Save brushed data into array
+        h = findobj(gca,'Type','line');
+        brush_ind = logical(get(h,'BrushData'))';
+        xyI_frame_remain = xyI_frame(brush_ind,:);
+        
+        % Append unbrushed points to array
+        xyI_frame_not = xyI_frame(~brush_ind,:);
         notco_stackdata_xyI = vertcat(notco_stackdata_xyI,xyI_frame_not);
-       
+        
         close
     end
 end

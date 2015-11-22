@@ -1,4 +1,4 @@
-%%                        findspots_v1
+%%                        IF-FISH_spots
 
 % John Canty                                Created: 10/08/15
 % Yildiz Lab
@@ -13,6 +13,10 @@
 % channel and TIF spots in another color channel. Make sure that the
 % channels are separated into two .tif files before running. This code
 % is used in conjunction with Insight3.
+
+% For processing .lsm files:
+% For IF-FISH, run the lsm2tiff_FISH_splitandmerge.sh script
+
 
 % Input subroutines:
 % tif2dax_function.m - converts .tif to .dax files

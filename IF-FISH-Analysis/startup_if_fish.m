@@ -24,8 +24,8 @@ IniTemp = 'C:\Users\TweedleDee\Documents\STORM\Software\Insight3\Insight3_temp.i
 disp('Adding InsightM paths');
 disp('-------------------------');
 
-%% Create data and findspots_v1 paths
+%% Create data and IF-FISH_spots paths
 DataPath = strcat(pwd,'\');
 FindSpots = 'C:\Users\TweedleDee\Documents\Projects\Q-FISH-toolbox\IF-FISH-Analysis\';
 addpath(FindSpots);
-findspots_v1;
+IF_FISH_spots;
