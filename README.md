@@ -1,4 +1,3 @@
-# Q-FISH-software
-## Created by John Canty
+## QFISH Image Analysis
 
-Several MATLAB scripts for analyzing telomere spots from confocal or epifluorescence Z-stacks. Includes documentation on updates to different features.
+This repository contains  MATLAB scripts for analyzing quantitative fluorescnece in-situ hybridization data from confocal or epifluorescence images. 
